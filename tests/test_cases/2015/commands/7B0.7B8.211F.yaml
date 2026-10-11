@@ -1,0 +1,6 @@
+command_id: 7B0.7B8.211F
+test_cases:
+- expected_values:
+    HIACE_PARKING_BRAKE: 1
+    HIACE_STOP_LIGHT: 0
+  response: 7B803611F40
