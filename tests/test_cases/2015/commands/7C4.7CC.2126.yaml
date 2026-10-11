@@ -1,0 +1,11 @@
+command_id: 7C4.7CC.2126
+test_cases:
+- expected_values:
+    HIACE_ECT: 85.3
+  response: 7CC036126F0
+- expected_values:
+    HIACE_ECT: 86
+  response: 7CC036126F2
+- expected_values:
+    HIACE_ECT: 86.35
+  response: 7CC036126F3

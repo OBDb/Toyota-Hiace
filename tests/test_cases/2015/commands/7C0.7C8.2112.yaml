@@ -1,0 +1,9 @@
+command_id: 7C0.7C8.2112
+test_cases:
+- expected_values:
+    HIACE_CHECK_ENGINE: 0
+    HIACE_P_SEATBELT_BUCKLE: 0
+    HIACE_TAIL_CANCEL: 0
+  response: |-
+    7C81009611200000000
+    7C82101C48000000000

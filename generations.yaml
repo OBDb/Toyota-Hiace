@@ -1,0 +1,12 @@
+references:
+  - "https://en.wikipedia.org/wiki/Toyota_HiAce"
+
+generations:
+  - name: "Fifth Generation (H200)"
+    start_year: 2004
+    end_year: 2019
+    description: "A cab-over van with 2.0 L and 2.7 L gasoline and 2.5 L and 3.0 L diesel engines."
+  - name: "Sixth Generation (H300)"
+    start_year: 2019
+    end_year: null
+    description: "A semi-bonneted van with the 2.8 L 1GD diesel and 3.5 L V6."
