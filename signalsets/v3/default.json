@@ -75,7 +75,7 @@
   "signals": [
     {"id": "HIACE_COOLANT_T", "path": "Engine", "fmt": { "len": 8, "max": 127.5, "div": 2, "unit": "celsius" }, "name": "Coolant temperature"}
   ]},
-{ "hdr": "7C0", "rax": "7C8", "cmd": {"21": "29"}, "freq": 5, "dbgfilter": { "to": 2014, "from": 2016 },
+{ "hdr": "7C0", "rax": "7C8", "cmd": {"21": "29"}, "freq": 1, "dbgfilter": { "to": 2014, "from": 2016 },
   "signals": [
     {"id": "HIACE_FLI_VOL", "path": "Fuel", "fmt": { "len": 8, "max": 21, "mul": 500, "div": 3785, "unit": "gallons" }, "name": "Fuel level, volume", "suggestedMetric": "fuelTankLevel"}
   ]},
