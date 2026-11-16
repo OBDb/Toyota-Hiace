@@ -61,7 +61,7 @@
   "signals": [
     {"id": "HIACE_TAIL_CANCEL",       "path": "Control",   "fmt": {"bix": 2,  "len": 1, "max": 1, "unit": "offon" }, "name": "Tail cancel"},
     {"id": "HIACE_P_SEATBELT_BUCKLE", "path": "Seatbelts", "fmt": {"bix": 8,  "len": 1, "max": 1, "unit": "offon" }, "name": "P-seatbelt buckle"},
-    {"id": "HIACE_CHECK_ENGINE",      "path": "Control",   "fmt": {"bix": 15, "len": 1, "max": 1, "unit": "offon" }, "name": "Check engine"}
+    {"id": "HIACE_CHECK_ENGINE",      "path": "Control",   "fmt": {"bix": 15, "len": 1, "max": 1, "unit": "offon" }, "name": "Check engine",      "suggestedMetric": "checkEngineLightOn"}
   ]},
 { "hdr": "7C0", "rax": "7C8", "cmd": {"21": "13"}, "freq": 5, "dbgfilter": { "to": 2014, "from": 2016 },
   "signals": [
@@ -141,8 +141,8 @@
     {"id": "HIACE_CALCULATED_LOAD_7E0",      "path": "Engine",   "fmt": {            "len": 8,  "max": 100,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Calculated load_7e0"},
     {"id": "HIACE_VEHICLE_LOAD",             "path": "Engine",   "fmt": {"bix": 8,   "len": 16, "max": 100,                "mul": 100, "div": 65535,             "unit": "percent"           }, "name": "Vehicle load"},
     {"id": "HIACE_MAF",                      "path": "Engine",   "fmt": {"bix": 24,  "len": 16, "max": 655.35,                                                   "unit": "gramsPerSecond"    }, "name": "Mass air flow",                "suggestedMetric": "massAirFlow"},
-    {"id": "HIACE_MAP",                      "path": "Engine",   "fmt": {"bix": 40,  "len": 8,  "max": 255,                                                      "unit": "kilopascal"        }, "name": "Manifold absolute pressure"},
-    {"id": "HIACE_INTAKE_AIR",               "path": "Engine",   "fmt": {"bix": 48,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"           }, "name": "Intake air"},
+    {"id": "HIACE_MAP",                      "path": "Engine",   "fmt": {"bix": 40,  "len": 8,  "max": 255,                                                      "unit": "kilopascal"        }, "name": "Manifold absolute pressure",   "suggestedMetric": "absoluteBoostPressure"},
+    {"id": "HIACE_INTAKE_AIR",               "path": "Engine",   "fmt": {"bix": 48,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"           }, "name": "Intake air",                   "suggestedMetric": "intakeAirTemperature"},
     {"id": "HIACE_AMBIENT_T",                "path": "Engine",   "fmt": {"bix": 56,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"           }, "name": "Ambient temperature"},
     {"id": "HIACE_ATMOSPHERE_PRESSURE",      "path": "Engine",   "fmt": {"bix": 64,  "len": 8,  "max": 255,                                                      "unit": "kilopascal"        }, "name": "Atmosphere pressure"},
     {"id": "HIACE_COOLANT_TEMP",             "path": "Engine",   "fmt": {"bix": 72,  "len": 8,  "max": 215,                                                      "unit": "celsius"           }, "name": "Coolant temp"},
@@ -181,7 +181,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "cmd": {"21": "06"}, "freq": 1, "dbgfilter": { "to": 2014, "from": 2016 },
   "signals": [
-    {"id": "HIACE_MIL",                            "path": "DTCs", "fmt": {           "len": 1,  "max": 1,     "unit": "offon"      }, "name": "MIL"},
+    {"id": "HIACE_MIL",                            "path": "DTCs", "fmt": {           "len": 1,  "max": 1,     "unit": "offon"      }, "name": "MIL",                                       "suggestedMetric": "checkEngineLightOn"},
     {"id": "HIACE_NUMBER_OF_EMISSION_DTC",         "path": "DTCs", "fmt": {"bix": 1,  "len": 7,  "max": 127,   "unit": "scalar"     }, "name": "Number of emission DTC"},
     {"id": "HIACE_COMPLETE_PARTS_MONITOR_AVAIL",   "path": "DTCs", "fmt": {"bix": 13, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Complete parts monitor available"},
     {"id": "HIACE_FUEL_SYSTEM_MONITOR_AVAIL",      "path": "DTCs", "fmt": {"bix": 14, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Fuel system monitor available"},
@@ -219,7 +219,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "0F"}, "freq": 1,
   "signals": [
-    {"id": "HIACE_IAT_21", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Intake air temperature"}
+    {"id": "HIACE_IAT_21", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Intake air temperature", "suggestedMetric": "intakeAirTemperature"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "10"}, "freq": 1,
   "signals": [
@@ -446,7 +446,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "D3"}, "freq": 0.25,
   "signals": [
-    {"id": "HIACE_CRUISE_CTRL_SPD", "path": "Movement", "fmt": {"bix": 8,  "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Cruise control speed"},
+    {"id": "HIACE_CRUISE_CTRL_SPD", "path": "Movement", "fmt": {"bix": 8,  "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Cruise control speed", "suggestedMetric": "cruiseSetSpeed"},
     {"id": "HIACE_CRUISE_CTRL_ON",  "path": "Engine",   "fmt": {"bix": 25, "len": 1, "max": 1,   "unit": "offon"             }, "name": "Cruise control on"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "D9"}, "freq": 5,
